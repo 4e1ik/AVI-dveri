@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Toggle Buttons Color</title>
+    <style>
+        /* Основной стиль для маленьких кнопок */
+        .small-button {
+            padding: 10px 20px;
+            color: white;
+            margin: 5px;
+            display: inline-block;
+            transition: background-color 0.3s ease;
+        }
+
+        .button1 {
+            background-color: blue;
+        }
+
+        .button2 {
+            background-color: green;
+        }
+
+        /* Скрытый чекбокс для переключения состояния */
+        input[type="checkbox"] {
+            display: none;
+        }
+
+        /* Меняем цвета маленьких кнопок, если чекбокс активирован */
+        input[type="checkbox"]:checked + .big-button .buttons-container .button1 {
+            background-color: green;
+        }
+
+        input[type="checkbox"]:checked + .big-button .buttons-container .button2 {
+            background-color: blue;
+        }
+
+        /* Стиль для большой кнопки */
+        .big-button {
+            display: inline-block;
+            padding: 20px;
+            background-color: lightgray;
+            border: 2px solid black;
+            cursor: pointer;
+            text-align: center;
+            width: 200px;
+        }
+    </style>
+</head>
+<body>
+
+<!-- Скрытый чекбокс -->
+<input type="checkbox" id="toggleCheckbox">
+
+<!-- Большая кнопка, которая управляет состоянием -->
+<label for="toggleCheckbox" class="big-button">
+    Нажми меня
+    <div class="buttons-container">
+        <!-- Маленькие кнопки внутри большой кнопки -->
+        <div class="small-button button1">Button 1</div>
+        <div class="small-button button2">Button 2</div>
+    </div>
+</label>
+
+</body>
+</html>
