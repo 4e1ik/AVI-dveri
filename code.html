@@ -1,67 +1,121 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ru">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Toggle Buttons Color</title>
+    <title>Каталог товаров</title>
+    <link rel="stylesheet" href="styles.css">
     <style>
-        /* Основной стиль для маленьких кнопок */
-        .small-button {
-            padding: 10px 20px;
+        *- {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+
+        .catalog {
+            display: flex;
+            flex-wrap: wrap;
+        }
+
+        .product-card {
+            background-color: white;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            width: 300px;
+            margin: 20px;
+            overflow: hidden;
+            position: relative;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease;
+        }
+
+        .product-card:hover {
+            transform: scale(1.05);
+        }
+
+        .product-image {
+            position: relative;
+        }
+
+        .product-image img {
+            width: 100%;
+            display: block;
+        }
+
+        .label {
+            position: absolute;
+            top: 10px;
+            left: 10px;
+            background-color: #d32f2f;
             color: white;
-            margin: 5px;
-            display: inline-block;
-            transition: background-color 0.3s ease;
+            padding: 5px 10px;
+            font-size: 14px;
+            border-radius: 3px;
         }
 
-        .button1 {
-            background-color: blue;
-        }
-
-        .button2 {
-            background-color: green;
-        }
-
-        /* Скрытый чекбокс для переключения состояния */
-        input[type="checkbox"] {
-            display: none;
-        }
-
-        /* Меняем цвета маленьких кнопок, если чекбокс активирован */
-        input[type="checkbox"]:checked + .big-button .buttons-container .button1 {
-            background-color: green;
-        }
-
-        input[type="checkbox"]:checked + .big-button .buttons-container .button2 {
-            background-color: blue;
-        }
-
-        /* Стиль для большой кнопки */
-        .big-button {
-            display: inline-block;
-            padding: 20px;
-            background-color: lightgray;
-            border: 2px solid black;
-            cursor: pointer;
+        .product-info {
+            padding: 15px;
             text-align: center;
-            width: 200px;
+        }
+
+        .product-info h2 {
+            font-size: 18px;
+            margin-bottom: 10px;
+        }
+
+        .product-info p {
+            font-size: 22px;
+            color: #333;
+            font-weight: bold;
+        }
+
+        .product-details {
+            display: none;
+            background-color: white;
+            padding: 15px;
+            border-top: 1px solid #ddd;
+            text-align: left;
+            font-size: 14px;
+        }
+
+        .product-card:hover .product-details {
+            display: block;
+        }
+
+        .product-details li {
+            margin-bottom: 5px;
         }
     </style>
 </head>
 <body>
-
-<!-- Скрытый чекбокс -->
-<input type="checkbox" id="toggleCheckbox">
-
-<!-- Большая кнопка, которая управляет состоянием -->
-<label for="toggleCheckbox" class="big-button">
-    Нажми меня
-    <div class="buttons-container">
-        <!-- Маленькие кнопки внутри большой кнопки -->
-        <div class="small-button button1">Button 1</div>
-        <div class="small-button button2">Button 2</div>
+<div class="catalog">
+    <div class="product-card">
+        <div class="product-image">
+            <img src="img/banner/1.png" alt="Входная дверь ПИАНО">
+            <div class="label">Хит продаж</div>
+        </div>
+        <div class="product-info">
+            <h2>Входная дверь ПИАНО / Бетон светлый</h2>
+            <p>1 495 руб.</p>
+        </div>
+        <div class="product-details">
+            <ul>
+                <li>Толщина полотна 116 мм</li>
+                <li>Толщина стального листа с полимерным покрытием 1,2 мм</li>
+                <li>3 контура уплотнения (1 магнитный)</li>
+                <li>3 осевые петли на подшипнике</li>
+            </ul>
+        </div>
     </div>
-</label>
-
+</div>
 </body>
 </html>

@@ -567,6 +567,14 @@ h5 {
     position: absolute
 }
 
+.background__banner{
+    position: absolute;
+    background: rgba(222, 227, 225,0.5);
+    height: 6em;
+    width: 100%;
+    margin-top: -6em
+}
+
 .banner-1 .banner-brief p {
     line-height: 15px
 }
@@ -602,7 +610,7 @@ h5 {
 
 .slider-title2, .slider-title3 {
     font-weight: 400;
-    color: #f0f8ff;
+    color: #FFFFFF;
 }
 
 .slider-title3 {
@@ -612,9 +620,9 @@ h5 {
 
 .slider-title1 {
     font-size: 60px;
-    font-weight: 900;
+    font-family: Lato-SemiBold;
     line-height: 66px;
-    color: black;
+    color: #dfaa5a;
 }
 
 .slider-title2 {
@@ -1433,10 +1441,6 @@ tab-menu {
     justify-content: space-between;
 }
 
-.button-one{
-    width: 15em;
-    height: 3em;
-}
 
 
 .heading-banner-area {
@@ -1640,7 +1644,7 @@ tab-menu {
 
 .price_slider_amount > input#amount {
     margin-right: 0;
-    width: 90px
+    width: 150px
 }
 
 .ui-slider.ui-slider-horizontal.ui-widget.ui-widget-content.ui-corner-all {
@@ -1679,7 +1683,6 @@ tab-menu {
 
 .color-filter ul li span.count {
     float: right
-
 }
 
 span.color {
@@ -1688,6 +1691,24 @@ span.color {
     height: 13px;
     margin-right: 20px;
     width: 13px
+}
+
+.product-details {
+    display: none;
+    background-color: white;
+    padding: 15px;
+    border-top: 1px solid #ddd;
+    text-align: left;
+    font-size: 14px;
+}
+
+.single-product:hover .product-details {
+    display: block;
+}
+
+.product-details li {
+    margin-bottom: 5px;
+    font-size: 0.9em;
 }
 
 .color-filter ul li.active span.color, .color-filter ul li:hover span.color {
@@ -2371,11 +2392,10 @@ input.cart-plus-minus-box {
     appearance: none;
     background: #f6f6f6 url(img/bg/angel-down.png) no-repeat scroll 97% center;
     border: medium none;
-    color: #999;
     height: 40px;
     padding: 0 20px;
     text-transform: capitalize;
-    width: 100%;
+    width: 50%;
     outline: 0
 }
 
@@ -2704,14 +2724,46 @@ input.cart-plus-minus-box {
     color: #666
 }
 
+input[type="radio"] {
+    display: none;
+}
 
+label{
+    font-size: 1.3em;
+}
+
+/* Стиль для первой кнопки, когда она выбрана */
+input[type="radio"]:checked + label {
+    color: #c8a165;
+}
+
+/* Стиль для второй кнопки, когда она выбрана */
+input[type="radio"]:nth-child(3):checked + label {
+    color: #c8a165;
+}
+
+.price__label{
+    margin-right: 2em;
+}
 
 @media only screen and (max-width: 1024px) {
     .d-flex{
         width: 15em;
     }
-
 }
+
+@media only screen and (max-width: 992px) {
+    .product__submit {
+        display: block;
+    }
+
+    .background__banner{
+        height: 100%;
+        margin-top: -103%;
+    }
+}
+
+
 
 
 /* Large Mobile :480px. */
@@ -2746,6 +2798,11 @@ input.cart-plus-minus-box {
         visibility: hidden;
         margin-top: -4em;
     }
+
+    .background__banner{
+        height: 5.5em;
+        margin-top: -5.5em;
+    }
 }
 
 @media screen and (max-width: 534px) {
@@ -2757,6 +2814,24 @@ input.cart-plus-minus-box {
 @media screen and (max-width: 534px) {
     header {
         margin-top: -4.5em;
+    }
+}
+
+@media screen and (max-width: 479px) {
+    .banner-1 .button-one{
+        bottom: 15px;
+        right: 10px;
+    }
+
+    .banner-brief{
+        bottom: 10px;
+        left: 20px;
+    }
+}
+
+@media screen and (max-width: 320px) {
+    .banner-title{
+        font-size: 1.2em;
     }
 }
 

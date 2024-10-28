@@ -81,6 +81,66 @@
 			</div>
 		</div>
 		<!-- Mobile-menu end -->
+		<Style>
+			.popup_application {
+				display: none;
+				width: 100%;
+				height: 100%;
+				position: fixed;
+				background: rgba(151, 151, 151, 0.05);
+				backdrop-filter: blur(4px);
+				-webkit-background: rgba(151, 151, 151, 0.05);
+				-webkit-backdrop-filter: blur(4px);
+				top: 0;
+				left: 0;
+				overflow-y: auto;
+				overflow-x: hidden;
+				z-index: 99;
+			}
+
+			.popup__body {
+				min-height: 100%;
+				display: flex;
+				justify-content: center;
+				align-items: center;
+				padding: 8.125em;
+			}
+
+			#contact-form {
+				background-color: #c7c2c2;
+				padding: 10px;
+				border-radius: 10px;
+			}
+
+			.form__text>h4 {
+				color:#5b3a29
+			}
+
+			.popup__cross_application{
+				cursor: pointer;
+				font-size: large;
+				transition: 0.2s;
+			}
+
+			.popup__cross_application:hover{
+				transform: scale(1.2);
+			}
+		</Style>
+		<div class="send-message popup_application">
+			<div class="popup__body popup__body_application">
+				<form id="contact-form" action="#">
+					<div class="form__text">
+						<h4 class="title-1 title-border text-uppercase mb-30">Отправить заявку</h4>
+						<div class="popup__cross_application" href="">✕</div>
+					</div>
+					<input type="text" name="con_name" placeholder="Имя" />
+					<input type="text" name="con_email" placeholder="E-mail" />
+					<textarea class="custom-textarea" name="con_message" placeholder="Текст сообщения"></textarea>
+					<button class="button-one submit-button mt-20" data-text="Отправить" type="">Отправить</button>
+					<p class="form-message"></p>
+				</form>
+			</div>
+		</div>
 			<!-- HEADING-BANNER START -->
 			<div class="heading-banner-area overlay-bg">
 				<div class="container">
@@ -148,13 +208,17 @@
 									<div class="fix">
 										<h4 class="post-title floatleft">Название товара</h4>
 									</div>
-									<div class="fix mb-20">
+									<div class="fix option1 mb-20">
 										<span class="pro-price">560 BYN</span>
 									</div>
 									<div class="product-description">
 										<p>There are many variations of passages of Lorem Ipsum available, but the majority have be suffered alteration in some form, by injected humou or randomised words which donot look even slightly believable. If you are going to use a passage of Lorem Ipsum. </p>
 									</div>
-									<!-- color start -->								
+									<select id="selector" class="custom-select mb-30" onchange="changeContent()">
+										<option value="option1">Полотно</option>
+										<option value="option2">Комплект</option>
+									</select>
+									<!-- color start -->
 									<div class="product__submit">
 										<div>
 											<div class="color-filter single-pro-color mb-20 clearfix">
@@ -238,10 +302,11 @@
 							<div class="single-footer">
 								<h3 class="footer-title  title-border">Контакты</h3>
 								<ul class="footer-contact">
-									<li><span>Адрес :</span>ул. Независимости, 65/451<br>Минск, Беларусь</li>
+									<li><span>Адрес :</span>ул. Минская, 15<br>Минская область, г. Червень</li>
 									<li><span>Номер телефона :</span>
-										<a href="80331234567">+375 (33) 123-45-67</a><br>
-										<a href="80331234567">+375 (33) 123-45-67</a>
+										<a href="80293673518">+375 (29) 367-35-18</a><br>
+										<a href="80333943324">+375 (33) 394-33-24</a><br>
+										<a href="80336846065">+375 (33) 684-60-65</a>
 									</li>
 									<li><span>Email :</span>
 										<a href="mailto:your-email@gmail.com">your-email@gmail.com</a>
@@ -261,9 +326,9 @@
 						</div>
 						<div class="footer-text">
 							<p><br><br>Цены и информация, представленные на данном сайте, приведены в ознакомительных целях, не являются публичной офертой и могут быть изменены.</p>
-							<p>ООО «Двери». Регистрация в Торговом реестре Республики Беларусь №352932 22.09.2016 г., УНП 192687055.</p>
-							<p>По вопросам покупателей о защите их прав:<br>7262 (МТС, A1)<br>info@elporta.by</p>
-							<p>Контакты лиц, уполномоченных рассматривать обращения покупателей о нарушении их прав (Минский районный исполнительный комитет, отдел торговли и услуг)<br> +375 (17) 270-29-14<br> +375 (17) 270-33-75.</p>
+							<p>ИП Исаев Андрей Влядимирович. Регистрация в Торговом реестре Республики Беларусь №0870887 15.12.2022 г., УНП 192687055.</p>
+							<p>По вопросам покупателей о защите их прав:<br><a href="80293673518">+375 (29) 367-35-18</a><br><a href="mailto:your-email@gmail.com">your-email@gmail.com</a></p>
+							<p>Контакты лиц, уполномоченных рассматривать обращения покупателей о нарушении их прав (Чрвеньский районный исполнительный комитет, отдел торговли и услуг)<br> +375 (17) 270-29-14<br> +375 (17) 270-33-75.</p>
 						</div>
 					</div>
 				</div>
@@ -288,6 +353,24 @@
 		</div>
 		<!-- WRAPPER END -->
 
+	<script>
+		function changeContent() {
+			const selectElement = document.getElementById("selector");
+			const selectedValue = selectElement.value;
+			const divElement = document.querySelector(".fix");
+			const spanElement = document.querySelector(".pro-price");
+
+			// Меняем класс div
+			divElement.className = `fix ${selectedValue}`;
+
+			// Меняем текст внутри span
+			if (selectedValue === "option1") {
+				spanElement.textContent = "560 BYN";
+			} else if (selectedValue === "option2") {
+				spanElement.textContent = "1200 BYN";
+			}
+		}
+	</script>
 		<!-- all js here -->
 		<!-- jquery latest version -->
 		<script src="js/vendor/jquery-3.6.0.min.js"></script>
@@ -317,5 +400,7 @@
 		<script src="js/plugins.js"></script>
 		<!-- main js -->
 		<script src="js/main.min.js"></script>
+
+		<script src="js/popupSubmitApplication.js"></script>
 	</body>
 </html>
