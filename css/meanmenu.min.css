@@ -165,7 +165,7 @@ a.meanmenu-reveal {
 
 .mean-container .mean-bar::after {
     color: #ffffff;
-    content: 'АВИ-двери';
+    /*content: 'АВИ-двери';*/
     font-size: 18px;
     left: 5%;
     position: absolute;
