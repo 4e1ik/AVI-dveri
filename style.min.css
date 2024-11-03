@@ -608,6 +608,14 @@ h5 {
     width: 70.5%
 }
 
+.slider-style-2{
+    background: #000;
+}
+
+.slides>img{
+    opacity: 0.6;
+}
+
 .slider-title2, .slider-title3 {
     font-weight: 400;
     color: #FFFFFF;
