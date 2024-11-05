@@ -604,17 +604,17 @@ h5 {
     margin: 0 0 30px
 }
 
-.slider-right {
-    width: 70.5%
-}
+/*.slider-right {*/
+/*    width: 70.5%*/
+/*}*/
 
-.slider-style-2{
-    background: #000;
-}
+/*.slider-style-2{*/
+/*    background: #000;*/
+/*}*/
 
-.slides>img{
-    opacity: 0.6;
-}
+/*.slides>img{*/
+/*    opacity: 0.6;*/
+/*}*/
 
 .slider-title2, .slider-title3 {
     font-weight: 400;
@@ -671,6 +671,7 @@ h5 {
     text-align: center;
     margin-bottom: 13px
 }
+
 
 .sidebar-social ul > li:last-child {
     margin-bottom: 0
@@ -2899,6 +2900,12 @@ input[type="radio"]:nth-child(3):checked + label {
     header {
         margin-top: -105px;
     }
+
+    .header-logo-link img{
+        scale: 2;
+        padding: 10px 1px 0 28px;
+    }
+
 }
 
 @media screen and (max-width: 375px) {
